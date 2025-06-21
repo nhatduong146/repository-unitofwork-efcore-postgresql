@@ -1,0 +1,12 @@
+﻿/.vs
+/src/RepositoryUnitOfWorkEFCoreSQL.Api/bin
+/src/RepositoryUnitOfWorkEFCoreSQL.Api/obj
+
+/src/RepositoryUnitOfWorkEFCoreSQL.Application/bin
+/src/RepositoryUnitOfWorkEFCoreSQL.Application/obj
+
+/src/RepositoryUnitOfWorkEFCoreSQL.Domain/bin
+/src/RepositoryUnitOfWorkEFCoreSQL.Domain/obj
+
+/src/RepositoryUnitOfWorkEFCoreSQL.Infrastructure/bin
+/src/RepositoryUnitOfWorkEFCoreSQL.Infrastructure/obj

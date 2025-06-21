@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A393FA15-E71C-44CF-AF2E-68B78963FC96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryUnitOfWorkEFCoreSQL.Api", "src\RepositoryUnitOfWorkEFCoreSQL.Api\RepositoryUnitOfWorkEFCoreSQL.Api.csproj", "{4C2805C5-371A-4368-A015-D4E4C7BA645F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryUnitOfWorkEFCoreSQL.Application", "src\RepositoryUnitOfWorkEFCoreSQL.Application\RepositoryUnitOfWorkEFCoreSQL.Application.csproj", "{F1E626FD-D611-488D-A31B-5EFC9E542515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryUnitOfWorkEFCoreSQL.Domain", "src\RepositoryUnitOfWorkEFCoreSQL.Domain\RepositoryUnitOfWorkEFCoreSQL.Domain.csproj", "{764F420A-56A1-476A-8C39-D7B96F0E58F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryUnitOfWorkEFCoreSQL.Infrastructure", "src\RepositoryUnitOfWorkEFCoreSQL.Infrastructure\RepositoryUnitOfWorkEFCoreSQL.Infrastructure.csproj", "{0A0DECA4-CB9D-477A-A771-F410C71BE73D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C2805C5-371A-4368-A015-D4E4C7BA645F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C2805C5-371A-4368-A015-D4E4C7BA645F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C2805C5-371A-4368-A015-D4E4C7BA645F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C2805C5-371A-4368-A015-D4E4C7BA645F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E626FD-D611-488D-A31B-5EFC9E542515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E626FD-D611-488D-A31B-5EFC9E542515}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E626FD-D611-488D-A31B-5EFC9E542515}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E626FD-D611-488D-A31B-5EFC9E542515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{764F420A-56A1-476A-8C39-D7B96F0E58F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{764F420A-56A1-476A-8C39-D7B96F0E58F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{764F420A-56A1-476A-8C39-D7B96F0E58F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{764F420A-56A1-476A-8C39-D7B96F0E58F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A0DECA4-CB9D-477A-A771-F410C71BE73D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A0DECA4-CB9D-477A-A771-F410C71BE73D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A0DECA4-CB9D-477A-A771-F410C71BE73D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A0DECA4-CB9D-477A-A771-F410C71BE73D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C2805C5-371A-4368-A015-D4E4C7BA645F} = {A393FA15-E71C-44CF-AF2E-68B78963FC96}
+		{F1E626FD-D611-488D-A31B-5EFC9E542515} = {A393FA15-E71C-44CF-AF2E-68B78963FC96}
+		{764F420A-56A1-476A-8C39-D7B96F0E58F4} = {A393FA15-E71C-44CF-AF2E-68B78963FC96}
+		{0A0DECA4-CB9D-477A-A771-F410C71BE73D} = {A393FA15-E71C-44CF-AF2E-68B78963FC96}
+	EndGlobalSection
+EndGlobal

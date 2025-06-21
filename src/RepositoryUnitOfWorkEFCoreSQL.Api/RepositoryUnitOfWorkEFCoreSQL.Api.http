@@ -1,0 +1,6 @@
+@RepositoryUnitOfWorkEFCoreSQL.Api_HostAddress = http://localhost:5214
+
+GET {{RepositoryUnitOfWorkEFCoreSQL.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
