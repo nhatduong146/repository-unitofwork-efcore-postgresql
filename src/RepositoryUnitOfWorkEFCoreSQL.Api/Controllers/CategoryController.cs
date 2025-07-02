@@ -1,29 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Services;
-using RepositoryUnitOfWorkEFCoreSQL.Application.ViewModels.Categories.Requests;
-using RepositoryUnitOfWorkEFCoreSQL.Application.ViewModels.Categories.Responses;
+﻿using Mediator;
+using Microsoft.AspNetCore.Mvc;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.CreateCategory;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.DeleteCateogry;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.GetCategoryList;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Api.Controllers;
 
 [ApiController]
 [Route("api/categories")]
-public class CategoryController(ICategoryService categoryService) : ControllerBase
+public class CategoryController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
-    public Task<List<CategoryGridResponse>> GetCategories(CancellationToken cancellationToken)
+    public ValueTask<List<GetCategoryListResponse>> GetCategories(CancellationToken cancellationToken)
     {
-        return categoryService.GetListAsync(cancellationToken);
+        return mediator.Send(new GetCategoryListRequest(), cancellationToken);
     }
 
     [HttpPost]
-    public Task CreateCategory([FromBody] CategoryCreateRequest request, CancellationToken cancellationToken)
+    public ValueTask<Unit> CreateCategory([FromBody] CreateCategoryRequest request, CancellationToken cancellationToken)
     {
-        return categoryService.CreateAsync(request, cancellationToken);
+        return mediator.Send(request, cancellationToken);
     }
 
     [HttpDelete("{id}")]
-    public Task DeleteCategory(string id, CancellationToken cancellationToken)
+    public ValueTask<Unit> DeleteCategory(string id, CancellationToken cancellationToken)
     {
-        return categoryService.DeleteAsync(id, cancellationToken);
+        var request = new DeleteCategoryRequest { Id = id };
+        return mediator.Send(request, cancellationToken);
     }
 }

@@ -1,24 +1,32 @@
-﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces;
+﻿using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
+using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
+using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
 using System.Data;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data;
 
-public class UnitOfWork(AppDbContext appDbContext) : IUnitOfWork
+public class UnitOfWork(AppDbContext context) : IUnitOfWork
 {
+    private IProductRepostitory? _productRepository;
+    private ICategoryRepository? _categoryRepository;
+
+    public IProductRepostitory Products => _productRepository ??= new ProductRepository(context);
+    public ICategoryRepository Categories => _categoryRepository ??= new CategoryRepository(context);
+
     public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        return appDbContext.SaveChangesAsync(cancellationToken);
+        return context.SaveChangesAsync(cancellationToken);
     }
 
     public async Task<TResult> ExecuteTransactionAsync<TResult>(Func<Task<TResult>> func, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
     {
-        if (appDbContext.Database.CurrentTransaction == null)
+        if (context.Database.CurrentTransaction == null)
         {
-            var strategy = appDbContext.Database.CreateExecutionStrategy();
+            var strategy = context.Database.CreateExecutionStrategy();
             var transResult = await strategy.ExecuteAsync(async () =>
             {
-                using var trans = await appDbContext.Database.BeginTransactionAsync(isolationLevel);
+                using var trans = await context.Database.BeginTransactionAsync(isolationLevel);
                 try
                 {
                     var result = await func.Invoke();

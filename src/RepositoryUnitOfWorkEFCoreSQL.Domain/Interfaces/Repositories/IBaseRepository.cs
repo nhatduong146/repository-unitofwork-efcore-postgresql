@@ -1,11 +1,10 @@
 ﻿using RepositoryUnitOfWorkEFCoreSQL.Domain.Common;
 using System.Linq.Expressions;
 
-namespace RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Repositories;
+namespace RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 
 public interface IBaseRepository<T> where T : BaseEntity
 {
-    IQueryable<T> GetDbSet();
     Task<T?> GetAsync(string id, CancellationToken cancellationToken = default);
     Task<T?> GetAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default);
     Task<List<T>> GetListAsync(CancellationToken cancellationToken = default);

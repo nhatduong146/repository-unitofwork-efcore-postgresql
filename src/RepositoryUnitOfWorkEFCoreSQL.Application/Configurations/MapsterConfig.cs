@@ -1,5 +1,5 @@
 ﻿using Mapster;
-using RepositoryUnitOfWorkEFCoreSQL.Application.ViewModels.Products.Responses;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Models.Products.Responses;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Entities;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Application.Configurations;

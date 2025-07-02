@@ -1,41 +1,46 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Services;
-using RepositoryUnitOfWorkEFCoreSQL.Application.ViewModels.Products.Requests;
-using RepositoryUnitOfWorkEFCoreSQL.Application.ViewModels.Products.Responses;
+﻿using Mediator;
+using Microsoft.AspNetCore.Mvc;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.CreateProduct;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.DeleteProduct;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.GetProductList;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.UpdateProduct;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Models.Products.Responses;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Api.Controllers;
 
 [ApiController]
 [Route("api/products")]
-public class ProductController(IProductService productService) : ControllerBase
+public class ProductController(IMediator mediator) : ControllerBase
 {
     [HttpGet]
-    public Task<List<ProductGridResponse>> GetAllProducts(CancellationToken cancellationToken)
+    public Task<List<GetProductListResponse>> GetAllProducts(CancellationToken cancellationToken)
     {
-        return productService.GetAllAsync(cancellationToken);
+        return mediator.Send(new GetProductListRequest(), cancellationToken).AsTask();
     }
 
     [HttpGet("{id}")]
-    public Task<ProductDetailResponse> GetProductById(string id, CancellationToken cancellationToken)
+    public ValueTask<ProductDetailResponse> GetProductById(string id, CancellationToken cancellationToken)
     {
-        return productService.GetByIdAsync(id, cancellationToken);
+        return default;
     }
 
     [HttpPost]
-    public Task Create([FromBody] ProductCreateRequest request, CancellationToken cancellationToken)
+    public ValueTask<Unit> Create([FromBody] CreateProductRequest request, CancellationToken cancellationToken)
     {
-        return productService.CreateAsync(request, cancellationToken);
+        return mediator.Send(request, cancellationToken);
     }
 
     [HttpPut("{id}")]
-    public Task UpdateProduct(string id, [FromBody] ProductCreateRequest request, CancellationToken cancellationToken)
+    public ValueTask<Unit> UpdateProduct(string id, [FromBody] UpdateProductRequest request, CancellationToken cancellationToken)
     {
-        return productService.UpdateAsync(id, request, cancellationToken);
+        request.Id = id;
+        return mediator.Send(request, cancellationToken);
     }
 
     [HttpDelete("{id}")]
-    public Task DeleteProduct(string id, CancellationToken cancellationToken)
+    public ValueTask<Unit> DeleteProduct(string id, CancellationToken cancellationToken)
     {
-        return productService.DeleteAsync(id, cancellationToken);
+        var request = new DeleteProductRequest { Id = id };
+        return mediator.Send(request, cancellationToken);
     }
 }

@@ -1,10 +1,8 @@
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Configurations;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Repositories;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Services;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Services;
+using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
+using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
@@ -28,13 +26,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Register UnitOfWork
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-// Register Repositories
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<IProductRepostitory, ProductRepository>();
+// Register Generic Repositories
+builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
-// Register AppServices
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IProductService, ProductService>();
+// Register Midiator
+builder.Services.AddMediator(options =>
+{
+    options.ServiceLifetime = ServiceLifetime.Scoped;
+});
 
 var app = builder.Build();
 

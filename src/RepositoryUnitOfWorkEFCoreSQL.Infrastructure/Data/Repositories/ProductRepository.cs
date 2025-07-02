@@ -1,4 +1,4 @@
-﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Repositories;
+﻿using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
@@ -17,6 +17,7 @@ public class ProductRepository(AppDbContext appDbContext) : BaseRepository<Produ
     {
         return GetDbSet().AsNoTracking()
             .Where(_ => _.CategoryId == categoryId)
+            .Include(_ => _.Category)
             .ToListAsync(cancellationToken);
     }
 

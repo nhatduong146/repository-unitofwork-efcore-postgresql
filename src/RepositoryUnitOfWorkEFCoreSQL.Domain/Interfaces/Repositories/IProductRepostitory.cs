@@ -1,6 +1,6 @@
 ﻿using RepositoryUnitOfWorkEFCoreSQL.Domain.Entities;
 
-namespace RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Repositories;
+namespace RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 
 public interface IProductRepostitory : IBaseRepository<Product>
 {

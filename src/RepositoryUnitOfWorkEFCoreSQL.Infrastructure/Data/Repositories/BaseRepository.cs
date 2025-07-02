@@ -1,5 +1,5 @@
-﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Repositories;
-using RepositoryUnitOfWorkEFCoreSQL.Domain.Common;
+﻿using RepositoryUnitOfWorkEFCoreSQL.Domain.Common;
+using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
 using System.Linq.Expressions;
 
@@ -9,7 +9,7 @@ public class BaseRepository<T>(AppDbContext appDbContext) : IBaseRepository<T> w
 {
     private readonly DbSet<T> DbSet = appDbContext.Set<T>();
 
-    public IQueryable<T> GetDbSet() => DbSet;
+    protected IQueryable<T> GetDbSet() => DbSet;
 
     public virtual Task<T?> GetAsync(string id, CancellationToken cancellationToken = default)
     {

@@ -1,4 +1,4 @@
-﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Interfaces.Repositories;
+﻿using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
