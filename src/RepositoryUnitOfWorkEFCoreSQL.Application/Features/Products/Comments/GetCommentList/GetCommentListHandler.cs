@@ -1,4 +1,4 @@
-﻿namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductComments.GetCommentList;
+﻿namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Comments.GetCommentList;
 
 public class GetCommentListHandler
 {

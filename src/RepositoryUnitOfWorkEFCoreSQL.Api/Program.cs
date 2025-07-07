@@ -6,6 +6,7 @@ using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
+using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Mediator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,10 +31,7 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
 // Register Midiator
-builder.Services.AddMediator(options =>
-{
-    options.ServiceLifetime = ServiceLifetime.Scoped;
-});
+builder.Services.AddMediator();
 
 var app = builder.Build();
 

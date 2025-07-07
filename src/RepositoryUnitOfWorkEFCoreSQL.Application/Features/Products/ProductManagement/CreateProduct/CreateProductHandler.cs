@@ -1,5 +1,5 @@
 ﻿using Mapster;
-using Mediator;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Entities;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
 
@@ -7,13 +7,11 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductMan
 
 public class CreateProductHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreateProductRequest>
 {
-    public async ValueTask<Unit> Handle(CreateProductRequest request, CancellationToken cancellationToken)
+    public async Task Handle(CreateProductRequest request, CancellationToken cancellationToken)
     {
         var product = request.Adapt<Product>();
 
         await unitOfWork.Products.InsertAsync(product, cancellationToken);
         await unitOfWork.SaveChangesAsync(cancellationToken);
-
-        return default;
     }
 }

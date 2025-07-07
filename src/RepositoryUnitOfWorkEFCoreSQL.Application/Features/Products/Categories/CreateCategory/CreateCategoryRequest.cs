@@ -1,6 +1,6 @@
-﻿using Mediator;
+﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
 
-namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.CreateCategory;
+namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Categories.CreateCategory;
 
 public class CreateCategoryRequest : IRequest
 {

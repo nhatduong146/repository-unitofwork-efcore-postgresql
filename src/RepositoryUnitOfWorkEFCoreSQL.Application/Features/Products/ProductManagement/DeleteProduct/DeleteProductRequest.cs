@@ -1,4 +1,4 @@
-﻿using Mediator;
+﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.DeleteProduct;
 
