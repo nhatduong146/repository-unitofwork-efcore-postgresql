@@ -1,12 +1,6 @@
-using Mapster;
 using Microsoft.EntityFrameworkCore;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Configurations;
-using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
-using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
-using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data;
+using RepositoryUnitOfWorkEFCoreSQL.Api;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
-using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
-using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Mediator;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,24 +8,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Register Mapster
-builder.Services.AddMapster();
-MapsterConfig.RegisterMappings();
-
-// Register AddDbContext
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-
-// Register UnitOfWork
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-// Register Generic Repositories
-builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-
-// Register Midiator
-builder.Services.AddMediator();
+// Register project specific services
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 

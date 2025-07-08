@@ -14,7 +14,8 @@ public static class DependencyInjection
         Type[] handlerInterfaceTypes = [typeof(IRequestHandler<>), typeof(IRequestHandler<,>)];
 
         var handlerTypes = assembly.GetTypes()
-            .Where(type => type.IsClass && !type.IsAbstract);
+            .Where(type => type.IsClass && !type.IsAbstract && type.GetInterfaces()
+                .Any(i => i.IsGenericType && handlerInterfaceTypes.Contains(i.GetGenericTypeDefinition())));
 
         foreach (var handlerType in handlerTypes)
         {

@@ -15,12 +15,4 @@
     <ProjectReference Include="..\RepositoryUnitOfWorkEFCoreSQL.Domain\RepositoryUnitOfWorkEFCoreSQL.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Orders\OrderItems\" />
-    <Folder Include="Features\Orders\OrderManagement\" />
-    <Folder Include="Features\Payments\Invoices\" />
-    <Folder Include="Features\Payments\Refunds\" />
-    <Folder Include="Features\Payments\PaymentProcessing\" />
-  </ItemGroup>
-
 </Project>
