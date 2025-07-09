@@ -1,13 +1,14 @@
-﻿using Mapster;
+﻿using FluentValidation;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Configurations;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
-using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Mediator;
+using RepositoryUnitOfWorkEFCoreSQL.Mediator;
+using System.Reflection;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Api;
 
@@ -18,6 +19,9 @@ public static class DependencyInjection
         // Register Mapster
         services.AddMapster();
         MapsterConfig.RegisterMappings();
+
+        // Register Fluent validators
+        services.AddValidatorsFromAssembly(Assembly.Load("RepositoryUnitOfWorkEFCoreSQL.Application"));
 
         return services;
     }
@@ -37,7 +41,7 @@ public static class DependencyInjection
         services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
         // Register Midiator
-        services.AddMediator(typeof(IMediator).Assembly);
+        services.AddMediator(Assembly.Load("RepositoryUnitOfWorkEFCoreSQL.Application"));
 
         return services;
     }

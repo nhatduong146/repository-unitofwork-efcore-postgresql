@@ -1,7 +1,8 @@
-﻿using Mapster;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
+﻿using FluentValidation;
+using Mapster;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Entities;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
+using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Categories.CreateCategory;
 

@@ -1,9 +1,9 @@
-﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.CreateProduct;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.DeleteProduct;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.GetProductList;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.UpdateProduct;
+using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Api.Controllers;
 

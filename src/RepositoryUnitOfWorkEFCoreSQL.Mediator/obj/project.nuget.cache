@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "bGsLd6S3Cag=",
+  "success": true,
+  "projectFilePath": "D:\\CDP\\Source\\RepositoryUnitOfWorkEFCoreSQL\\src\\RepositoryUnitOfWorkEFCoreSQL.Mediator\\RepositoryUnitOfWorkEFCoreSQL.Mediator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nhatd\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.7\\microsoft.extensions.dependencyinjection.9.0.7.nupkg.sha512",
+    "C:\\Users\\nhatd\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.7\\microsoft.extensions.dependencyinjection.abstractions.9.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}

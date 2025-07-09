@@ -1,6 +1,6 @@
-﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.DeleteCateogry;
+﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.DeleteCateogry;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
+using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Categories.DeleteCateogry;
 

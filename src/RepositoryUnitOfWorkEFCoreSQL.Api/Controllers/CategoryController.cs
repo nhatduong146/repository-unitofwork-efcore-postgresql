@@ -1,8 +1,8 @@
-﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.DeleteCateogry;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Categories.CreateCategory;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Categories.GetCategoryList;
+using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Api.Controllers;
 

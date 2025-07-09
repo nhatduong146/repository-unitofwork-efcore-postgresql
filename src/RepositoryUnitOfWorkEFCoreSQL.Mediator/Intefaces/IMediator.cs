@@ -1,4 +1,4 @@
-﻿namespace RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
+﻿namespace RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 
 public interface IMediator
 {

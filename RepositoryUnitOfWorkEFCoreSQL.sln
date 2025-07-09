@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryUnitOfWorkEFCoreS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryUnitOfWorkEFCoreSQL.Infrastructure", "src\RepositoryUnitOfWorkEFCoreSQL.Infrastructure\RepositoryUnitOfWorkEFCoreSQL.Infrastructure.csproj", "{0A0DECA4-CB9D-477A-A771-F410C71BE73D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryUnitOfWorkEFCoreSQL.Mediator", "src\RepositoryUnitOfWorkEFCoreSQL.Mediator\RepositoryUnitOfWorkEFCoreSQL.Mediator.csproj", "{A5841AFF-4A5F-4F76-AEB5-BA0A538A664D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{0A0DECA4-CB9D-477A-A771-F410C71BE73D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A0DECA4-CB9D-477A-A771-F410C71BE73D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A0DECA4-CB9D-477A-A771-F410C71BE73D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5841AFF-4A5F-4F76-AEB5-BA0A538A664D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5841AFF-4A5F-4F76-AEB5-BA0A538A664D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5841AFF-4A5F-4F76-AEB5-BA0A538A664D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5841AFF-4A5F-4F76-AEB5-BA0A538A664D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +50,6 @@ Global
 		{F1E626FD-D611-488D-A31B-5EFC9E542515} = {A393FA15-E71C-44CF-AF2E-68B78963FC96}
 		{764F420A-56A1-476A-8C39-D7B96F0E58F4} = {A393FA15-E71C-44CF-AF2E-68B78963FC96}
 		{0A0DECA4-CB9D-477A-A771-F410C71BE73D} = {A393FA15-E71C-44CF-AF2E-68B78963FC96}
+		{A5841AFF-4A5F-4F76-AEB5-BA0A538A664D} = {A393FA15-E71C-44CF-AF2E-68B78963FC96}
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,7 @@
 ﻿using Mapster;
-using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Mediator;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Entities;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
+using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.CreateProduct;
 
