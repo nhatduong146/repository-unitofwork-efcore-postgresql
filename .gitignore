@@ -10,3 +10,8 @@
 
 /src/RepositoryUnitOfWorkEFCoreSQL.Infrastructure/bin
 /src/RepositoryUnitOfWorkEFCoreSQL.Infrastructure/obj
+
+/src/RepositoryUnitOfWorkEFCoreSQL.Mediator/bin
+/src/RepositoryUnitOfWorkEFCoreSQL.Mediator/obj
+/src/RepositoryUnitOfWorkEFCoreSQL.Mediator/obj/Debug/net8.0/RepositoryUnitOfWorkEFCoreSQL.Mediator.AssemblyInfoInputs.cache
+/src/RepositoryUnitOfWorkEFCoreSQL.Mediator/obj/Debug/net8.0/RepositoryUnitOfWorkEFCoreSQL.Mediator.AssemblyInfo.cs
