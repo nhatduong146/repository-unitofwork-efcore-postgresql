@@ -4,6 +4,6 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Categories
 
 public class CreateCategoryRequest : IRequest
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
+    public string? Name { get; set; }
+    public string? Description { get; set; }
 }

@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Behaviors;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Configurations;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces.Repositories;
@@ -8,6 +9,7 @@ using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
 using RepositoryUnitOfWorkEFCoreSQL.Mediator;
+using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 using System.Reflection;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Api;
@@ -22,6 +24,13 @@ public static class DependencyInjection
 
         // Register Fluent validators
         services.AddValidatorsFromAssembly(Assembly.Load("RepositoryUnitOfWorkEFCoreSQL.Application"));
+
+        // Register Mediator
+        services.AddMediator(Assembly.Load("RepositoryUnitOfWorkEFCoreSQL.Application"));
+
+        // Register Validation pipeline behaviors
+        services.AddScoped(typeof(IPipelineBehavior<>), typeof(ValidationBehavior<>));
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
         return services;
     }
@@ -39,9 +48,6 @@ public static class DependencyInjection
 
         // Register Generic Repositories
         services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-
-        // Register Midiator
-        services.AddMediator(Assembly.Load("RepositoryUnitOfWorkEFCoreSQL.Application"));
 
         return services;
     }

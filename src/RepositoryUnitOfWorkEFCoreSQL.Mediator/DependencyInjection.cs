@@ -17,9 +17,6 @@ public static class DependencyInjection
         // Register request handlers
         services.AddRequestHandlers(assembly);
 
-        // Register pipeline behaviors
-        services.AddPipelineBehaviors(assembly);
-
         return services;
     }
 
@@ -39,24 +36,5 @@ public static class DependencyInjection
             foreach (var handlerInterface in interfaces)
                 services.AddScoped(handlerInterface, handlerType);
         }
-    }
-
-    private static void AddPipelineBehaviors(this IServiceCollection services, Assembly assembly)
-    {
-        Type[] behaviorInterfaceTypes = [typeof(IPipelineBehavior<>), typeof(IPipelineBehavior<,>)];
-
-        var behaviorTypes = assembly.GetTypes()
-            .Where(type => type.IsClass && !type.IsAbstract && type.GetInterfaces()
-                .Any(i => i.IsGenericType && behaviorInterfaceTypes.Contains(i.GetGenericTypeDefinition())));
-
-        foreach(var behaviorType in behaviorTypes)
-        {
-            var interfaces = behaviorType.GetInterfaces()
-                .Where(i => i.IsGenericType && behaviorInterfaceTypes.Contains(i.GetGenericTypeDefinition()));
-
-            foreach (var behaviorInterface in interfaces)
-                services.AddScoped(behaviorInterface, behaviorType);
-        }
-
     }
 }
