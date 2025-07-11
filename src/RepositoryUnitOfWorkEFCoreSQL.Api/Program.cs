@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RepositoryUnitOfWorkEFCoreSQL.Api;
+using RepositoryUnitOfWorkEFCoreSQL.Api.Middlewares;
 using RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +29,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseAuthorization();
 

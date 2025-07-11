@@ -11,12 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Filters\" />
-    <Folder Include="Configurations\" />
-    <Folder Include="Middlewares\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RepositoryUnitOfWorkEFCoreSQL.Application\RepositoryUnitOfWorkEFCoreSQL.Application.csproj" />
     <ProjectReference Include="..\RepositoryUnitOfWorkEFCoreSQL.Infrastructure\RepositoryUnitOfWorkEFCoreSQL.Infrastructure.csproj" />
   </ItemGroup>
