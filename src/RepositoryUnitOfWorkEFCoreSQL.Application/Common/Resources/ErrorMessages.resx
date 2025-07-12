@@ -123,10 +123,13 @@
   <data name="RequestContainsInvalidData" xml:space="preserve">
     <value>The request contains invalid data.</value>
   </data>
-  <data name="BadRequest" xml:space="preserve">
-    <value>Bad request!</value>
-  </data>
   <data name="InternalServer" xml:space="preserve">
-    <value>Internal server!</value>
+    <value>Somethign went wrong. Please try again later!</value>
+  </data>
+  <data name="CategoryNotFound" xml:space="preserve">
+    <value>Category not found.</value>
+  </data>
+  <data name="ProductNotFound" xml:space="preserve">
+    <value>Product not found.</value>
   </data>
 </root>

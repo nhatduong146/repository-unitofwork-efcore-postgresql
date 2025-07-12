@@ -22,7 +22,7 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class ErrorMessages {
+    public class ErrorMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources.ErrorMessages", typeof(ErrorMessages).Assembly);
@@ -51,7 +51,7 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,25 +63,43 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Bad request!.
         /// </summary>
-        internal static string BadRequest {
+        public static string BadRequest {
             get {
                 return ResourceManager.GetString("BadRequest", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Internal server!.
+        ///   Looks up a localized string similar to Category not found..
         /// </summary>
-        internal static string InternalServer {
+        public static string CategoryNotFound {
+            get {
+                return ResourceManager.GetString("CategoryNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Somethign went wrong. Please try again later!.
+        /// </summary>
+        public static string InternalServer {
             get {
                 return ResourceManager.GetString("InternalServer", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Product not found..
+        /// </summary>
+        public static string ProductNotFound {
+            get {
+                return ResourceManager.GetString("ProductNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The request contains invalid data..
         /// </summary>
-        internal static string RequestContainsInvalidData {
+        public static string RequestContainsInvalidData {
             get {
                 return ResourceManager.GetString("RequestContainsInvalidData", resourceCulture);
             }

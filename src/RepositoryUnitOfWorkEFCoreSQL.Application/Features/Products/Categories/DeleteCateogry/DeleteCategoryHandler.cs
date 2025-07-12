@@ -1,4 +1,5 @@
-﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.DeleteCateogry;
+﻿using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategories.DeleteCateogry;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
 using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 
@@ -9,7 +10,7 @@ public class DeleteCategoryHandler(IUnitOfWork unitOfWork) : IRequestHandler<Del
     public async Task Handle(DeleteCategoryRequest request, CancellationToken cancellationToken)
     {
         var category = await unitOfWork.Categories.GetAsync(request.Id, cancellationToken)
-            ?? throw new Exception("Not found category");
+            ?? throw new Exception(ErrorMessages.CategoryNotFound);
 
         category.IsDeleted = true;
         category.DeletedAt = DateTime.UtcNow;
