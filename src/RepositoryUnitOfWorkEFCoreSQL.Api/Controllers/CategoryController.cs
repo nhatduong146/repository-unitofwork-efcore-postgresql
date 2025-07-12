@@ -3,6 +3,7 @@ using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCategor
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Categories.CreateCategory;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.Categories.GetCategoryList;
 using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
+using RepositoryUnitOfWorkEFCoreSQL.Api.Exceptions;
 
 namespace RepositoryUnitOfWorkEFCoreSQL.Api.Controllers;
 
@@ -19,6 +20,9 @@ public class CategoryController(IMediator mediator) : ControllerBase
     [HttpPost]
     public Task CreateCategory([FromBody] CreateCategoryRequest request, CancellationToken cancellationToken)
     {
+        if (request == null)
+            throw new BadRequestException("Bad request!");
+
         return mediator.Send(request, cancellationToken);
     }
 

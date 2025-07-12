@@ -1,9 +1,16 @@
-﻿namespace RepositoryUnitOfWorkEFCoreSQL.Application.Common.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace RepositoryUnitOfWorkEFCoreSQL.Application.Common.Models;
 
 public class ErrorResponse
 {
+    [JsonPropertyName("message")]
     public string Message { get; set; }
+
+    [JsonPropertyName("detail")]
     public string? Detail { get; set; }
+
+    [JsonPropertyName("errors")]
     public Dictionary<string, string[]>? Errors { get; set; }
 
     public ErrorResponse(string message)

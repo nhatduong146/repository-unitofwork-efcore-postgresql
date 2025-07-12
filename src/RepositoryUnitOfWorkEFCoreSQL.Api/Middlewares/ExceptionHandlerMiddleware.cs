@@ -28,7 +28,7 @@ public class ExceptionHandlerMiddleware(RequestDelegate next, ILogger<ExceptionH
         }
         catch (Exception exception)
         {
-            await HandleServiceExceptionAsync(context, exception);
+            await HandleServerExceptionAsync(context, exception);
         }
     }
 
@@ -67,7 +67,7 @@ public class ExceptionHandlerMiddleware(RequestDelegate next, ILogger<ExceptionH
         await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
     }
 
-    private async Task HandleServiceExceptionAsync(HttpContext context, Exception exception)
+    private async Task HandleServerExceptionAsync(HttpContext context, Exception exception)
     {
         logger.LogError("InternalSeverError in ExceptionHandlerMiddleware at {Datetime} with exception {@Exception}", DateTime.Now, exception);
 

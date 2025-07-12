@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Mapster;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Behaviors;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Configurations;
@@ -22,15 +23,21 @@ public static class DependencyInjection
         services.AddMapster();
         MapsterConfig.RegisterMappings();
 
-        // Register Fluent validators
-        services.AddValidatorsFromAssembly(Assembly.Load("RepositoryUnitOfWorkEFCoreSQL.Application"));
-
         // Register Mediator
         services.AddMediator(Assembly.Load("RepositoryUnitOfWorkEFCoreSQL.Application"));
 
-        // Register Validation pipeline behaviors
+        // Register validation pipeline behaviors
         services.AddScoped(typeof(IPipelineBehavior<>), typeof(ValidationBehavior<>));
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+        // Register Fluent validators
+        services.AddValidatorsFromAssembly(Assembly.Load("RepositoryUnitOfWorkEFCoreSQL.Application"));
+
+        // Disable automatic model state validation due to using Fluent validation instead
+        services.Configure<ApiBehaviorOptions>(options =>
+        {
+            options.SuppressModelStateInvalidFilter = true;
+        });
 
         return services;
     }

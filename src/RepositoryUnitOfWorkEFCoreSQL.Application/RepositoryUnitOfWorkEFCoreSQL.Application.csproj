@@ -18,4 +18,19 @@
     <ProjectReference Include="..\RepositoryUnitOfWorkEFCoreSQL.Mediator\RepositoryUnitOfWorkEFCoreSQL.Mediator.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Common\Resources\ErrorMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorMessages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Common\Resources\ErrorMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
