@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
-using RepositoryUnitOfWorkEFCoreSQL.Api.Exceptions;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Models;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Exceptions;
 using System.Net;
 using System.Text.Json;
 
@@ -53,7 +54,6 @@ public class ExceptionHandlerMiddleware(RequestDelegate next, ILogger<ExceptionH
         logger.LogError("Validation error in ExceptionHandlerMiddleware at {Datetime} with status code {StatusCode} and exception {@Exception}",
             DateTime.Now, (int)httpStatusCode, exception);
 
-        var message = "The request contains invalid data.";
         var errors = exception.Errors
             .GroupBy(e => e.PropertyName)
             .ToDictionary(
@@ -61,7 +61,7 @@ public class ExceptionHandlerMiddleware(RequestDelegate next, ILogger<ExceptionH
                 g => g.Select(e => e.ErrorMessage).ToArray()
             );
 
-        var errorResponse = new ErrorResponse(message, errors);
+        var errorResponse = new ErrorResponse(ErrorMessages.RequestContainsInvalidData, errors);
         context.Response.StatusCode = (int)httpStatusCode;
         context.Response.ContentType = "application/json";
         await context.Response.WriteAsync(JsonSerializer.Serialize(errorResponse));
@@ -71,7 +71,7 @@ public class ExceptionHandlerMiddleware(RequestDelegate next, ILogger<ExceptionH
     {
         logger.LogError("InternalSeverError in ExceptionHandlerMiddleware at {Datetime} with exception {@Exception}", DateTime.Now, exception);
 
-        var errorResponse = new ErrorResponse("Something went wrong. Please try again later.");
+        var errorResponse = new ErrorResponse(ErrorMessages.InternalServer);
         if (!env.IsProduction())
         {
             errorResponse.Message = exception.Message;

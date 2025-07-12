@@ -1,4 +1,4 @@
-﻿namespace RepositoryUnitOfWorkEFCoreSQL.Api.Exceptions;
+﻿namespace RepositoryUnitOfWorkEFCoreSQL.Application.Exceptions;
 
 public class NotFoundException : Exception
 {

@@ -1,4 +1,6 @@
 ﻿using Mapster;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Exceptions;
 using RepositoryUnitOfWorkEFCoreSQL.Domain.Interfaces;
 using RepositoryUnitOfWorkEFCoreSQL.Mediator.Intefaces;
 
@@ -9,7 +11,7 @@ public class UpdateProductHandler(IUnitOfWork unitOfWork) : IRequestHandler<Upda
     public async Task Handle(UpdateProductRequest request, CancellationToken cancellationToken)
     {
         var product = await unitOfWork.Products.GetAsync(request.Id, cancellationToken)
-            ?? throw new Exception("Product not found");
+            ?? throw new BadRequestException(ErrorMessages.ProductNotFound);
 
         request.Adapt(product);
 

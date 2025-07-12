@@ -47,7 +47,7 @@ public class Mediator(IServiceProvider serviceProvider) : IMediator
         foreach (var behavior in behaviors.Reverse())
         {
             var currentPipeline = handlerDelegate;
-            handlerDelegate = () => ((dynamic)behavior).Handle(request, currentPipeline, cancellationToken);
+            handlerDelegate = () => ((dynamic)behavior).Handle((dynamic)request, currentPipeline, cancellationToken);
         }
 
         return handlerDelegate();

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using RepositoryUnitOfWorkEFCoreSQL.Api.Exceptions;
+﻿using Microsoft.AspNetCore.Mvc;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Common.Resources;
+using RepositoryUnitOfWorkEFCoreSQL.Application.Exceptions;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.CreateProduct;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.DeleteProduct;
 using RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductManagement.GetProductList;
@@ -23,7 +23,7 @@ public class ProductController(IMediator mediator) : ControllerBase
     public Task Create([FromBody] CreateProductRequest request, CancellationToken cancellationToken)
     {
         if (request == null)
-            throw new BadRequestException("Bad request!");
+            throw new BadRequestException(ErrorMessages.BadRequest);
 
         return mediator.Send(request, cancellationToken);
     }
@@ -31,6 +31,9 @@ public class ProductController(IMediator mediator) : ControllerBase
     [HttpPut("{id}")]
     public Task UpdateProduct(string id, [FromBody] UpdateProductRequest request, CancellationToken cancellationToken)
     {
+        if (request == null)
+            throw new BadRequestException(ErrorMessages.BadRequest);
+
         request.Id = id;
         return mediator.Send(request, cancellationToken);
     }
