@@ -28,7 +28,7 @@ public class CategoryController(IMediator mediator) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public Task DeleteCategory(string id, CancellationToken cancellationToken)
+    public Task DeleteCategory(Guid id, CancellationToken cancellationToken)
     {
         var request = new DeleteCategoryRequest { Id = id };
         return mediator.Send(request, cancellationToken);

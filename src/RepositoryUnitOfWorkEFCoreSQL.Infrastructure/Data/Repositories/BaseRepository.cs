@@ -11,7 +11,7 @@ public class BaseRepository<T>(AppDbContext appDbContext) : IBaseRepository<T> w
 
     protected IQueryable<T> GetDbSet() => DbSet;
 
-    public virtual Task<T?> GetAsync(string id, CancellationToken cancellationToken = default)
+    public virtual Task<T?> GetAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return DbSet.FirstOrDefaultAsync(_ => _.Id == id && !_.IsDeleted, cancellationToken);
     }
@@ -31,7 +31,7 @@ public class BaseRepository<T>(AppDbContext appDbContext) : IBaseRepository<T> w
         return DbSet.Where(expression).ToListAsync(cancellationToken);
     }
 
-    public virtual Task<bool> AnyAsync(string id, CancellationToken cancellationToken = default)
+    public virtual Task<bool> AnyAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return DbSet.AnyAsync(_ => _.Id == id && !_.IsDeleted, cancellationToken);
     }

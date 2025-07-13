@@ -4,5 +4,5 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductCat
 
 public class DeleteCategoryRequest : IRequest
 {
-    public string Id { get; set; }
+    public Guid Id { get; set; }
 }

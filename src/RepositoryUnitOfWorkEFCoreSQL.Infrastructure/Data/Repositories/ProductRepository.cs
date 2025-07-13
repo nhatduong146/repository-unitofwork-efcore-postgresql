@@ -5,7 +5,7 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Infrastructure.Data.Repositories;
 
 public class ProductRepository(AppDbContext appDbContext) : BaseRepository<Product>(appDbContext), IProductRepostitory
 {
-    public Task<string?> GetProductName(string productId, CancellationToken cancellationToken)
+    public Task<string?> GetProductName(Guid productId, CancellationToken cancellationToken)
     {
         return GetDbSet().AsNoTracking()
             .Where(_ => _.Id == productId)
@@ -13,7 +13,7 @@ public class ProductRepository(AppDbContext appDbContext) : BaseRepository<Produ
             .FirstOrDefaultAsync(cancellationToken);
     }
 
-    public Task<List<Product>> GetListAsync(string categoryId, CancellationToken cancellationToken)
+    public Task<List<Product>> GetListAsync(Guid categoryId, CancellationToken cancellationToken)
     {
         return GetDbSet().AsNoTracking()
             .Where(_ => _.CategoryId == categoryId)
@@ -21,7 +21,7 @@ public class ProductRepository(AppDbContext appDbContext) : BaseRepository<Produ
             .ToListAsync(cancellationToken);
     }
 
-    public Task BulkDeleteByCategoryAsync(string categoryId, CancellationToken cancellationToken)
+    public Task BulkDeleteByCategoryAsync(Guid categoryId, CancellationToken cancellationToken)
     {
         return GetDbSet()
             .Where(_ => _.CategoryId == categoryId)

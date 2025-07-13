@@ -10,6 +10,9 @@ public class CategoryConfiguration : IEntityTypeConfiguration<Category>
             .IsRequired()
             .HasMaxLength(255);
 
+        builder.Property(_ => _.Description)
+            .HasMaxLength(1000);
+
         builder.HasMany(_ => _.Products)
             .WithOne(_ => _.Category)
             .HasForeignKey(_ => _.CategoryId)

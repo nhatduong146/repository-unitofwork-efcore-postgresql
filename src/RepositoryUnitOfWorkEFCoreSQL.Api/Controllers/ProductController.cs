@@ -29,7 +29,7 @@ public class ProductController(IMediator mediator) : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public Task UpdateProduct(string id, [FromBody] UpdateProductRequest request, CancellationToken cancellationToken)
+    public Task UpdateProduct(Guid id, [FromBody] UpdateProductRequest request, CancellationToken cancellationToken)
     {
         if (request == null)
             throw new BadRequestException(ErrorMessages.BadRequest);
@@ -39,7 +39,7 @@ public class ProductController(IMediator mediator) : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public Task DeleteProduct(string id, CancellationToken cancellationToken)
+    public Task DeleteProduct(Guid id, CancellationToken cancellationToken)
     {
         var request = new DeleteProductRequest { Id = id };
         return mediator.Send(request, cancellationToken);

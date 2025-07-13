@@ -4,5 +4,5 @@ namespace RepositoryUnitOfWorkEFCoreSQL.Application.Features.Products.ProductMan
 
 public class DeleteProductRequest : IRequest
 {
-    public string Id { get; set; }
+    public Guid Id { get; set; }
 }
